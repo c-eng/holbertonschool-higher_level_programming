@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-for char in list(map(chr, range(97, 123))):
-    print(char, end='')
+for char in range(97, 123):
+    print(chr(char), end='')

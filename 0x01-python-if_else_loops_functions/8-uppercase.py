@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def uppercase(str):
     temp = ''
     for ind in range(len(str)):
