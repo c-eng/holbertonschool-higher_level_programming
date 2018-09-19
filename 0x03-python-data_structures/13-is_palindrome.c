@@ -11,16 +11,16 @@
 
 listint_t *get_listint_at_index(listint_t *head, unsigned int index)
 {
-        unsigned int idx = 0;
+	unsigned int idx = 0;
 
-        while (head && idx < index)
-        {
-                idx++;
-                head = head->next;
-        }
-        if (idx == index && head)
-                return (head);
-        return (NULL);
+	while (head && idx < index)
+	{
+		idx++;
+		head = head->next;
+	}
+	if (idx == index && head)
+		return (head);
+	return (NULL);
 }
 
 /**
@@ -39,7 +39,7 @@ int is_palindrome(listint_t **head)
 
 	if (!head)
 		return (0);
-	if(!*head)
+	if (!*head)
 		return (1);
 	strider = *head;
 	while (strider)
