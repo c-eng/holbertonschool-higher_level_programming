@@ -79,7 +79,6 @@ int is_palindrome(listint_t **head)
 	}
 	for ( ; adx <= (idx / 2) ; adx++)
 	{
-		printf("%d, %d\n", array[adx], array[idx - adx - 1]);
 		if (!(array[adx] == array[idx - adx - 1]))
 		{
 			free(array);
