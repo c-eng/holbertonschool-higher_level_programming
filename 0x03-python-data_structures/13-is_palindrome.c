@@ -24,6 +24,55 @@ listint_t *get_listint_at_index(listint_t *head, unsigned int index)
 }
 
 /**
+ * _memcpy - copies n bytes from src to dest
+ * @dest: bytes copied to
+ * @src: bytes copied from
+ * @n: number of bytes copied
+ *
+ * Return: pointer to dest
+ */
+
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0 ; i < n ; i++)
+	{
+		*(dest + i) = *(src + i);
+	}
+
+	return (dest);
+}
+
+/**
+ * _realloc - realloc
+ *
+ * @ptr: memory to be reallocated
+ * @size: size of memory of be reallocated
+ *
+ * Return: pointer to memory or NULL
+ */
+
+void *_realloc(void *ptr, size_t size)
+{
+	char *new_ptr = NULL;
+
+	if (!ptr)
+		return (malloc(size));
+	if (!size)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	new_ptr = malloc(size);
+	if (!new_ptr)
+		return (NULL);
+	_memcpy(new_ptr, ptr, size);
+	free(ptr);
+	return (new_ptr);
+}
+
+/**
  * is_palindrome - Checks if linked list is a palindrome
  *
  * @head: head of list to check
@@ -44,7 +93,7 @@ int is_palindrome(listint_t **head)
 	strider = *head;
 	while (strider)
 	{
-		array = realloc(array, sizeof(int) * (idx + 1));
+		array = _realloc(array, sizeof(int) * (idx + 1));
 		if (!array)
 			return (1);
 		array[idx] = get_listint_at_index(*head, idx)->n;
@@ -53,9 +102,12 @@ int is_palindrome(listint_t **head)
 	}
 	for ( ; adx <= (idx / 2) ; adx++)
 	{
+		printf("%d, %d\n", array[adx], array[idx - adx - 1]);
 		if (!(array[adx] == array[idx - adx - 1]))
+		{
 			free(array);
 			return (0);
+		}
 	}
 	free(array);
 	return (1);
