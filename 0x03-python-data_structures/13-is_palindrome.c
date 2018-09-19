@@ -1,29 +1,6 @@
 #include "lists.h"
 
 /**
- * get_listint_at_index - returns nth node of a list
- *
- * @head: head of list
- * @index: index of node to return
- *
- * Return: node at nth index or NULL if it does not exist
- */
-
-listint_t *get_listint_at_index(listint_t *head, unsigned int index)
-{
-	unsigned int idx = 0;
-
-	while (head && idx < index)
-	{
-		idx++;
-		head = head->next;
-	}
-	if (idx == index && head)
-		return (head);
-	return (NULL);
-}
-
-/**
  * _memcpy - copies n bytes from src to dest
  * @dest: bytes copied to
  * @src: bytes copied from
@@ -67,7 +44,7 @@ void *_realloc(void *ptr, size_t size)
 	new_ptr = malloc(size);
 	if (!new_ptr)
 		return (NULL);
-	_memcpy(new_ptr, ptr, size);
+	_memcpy(new_ptr, ptr, size - 4);
 	free(ptr);
 	return (new_ptr);
 }
@@ -96,7 +73,7 @@ int is_palindrome(listint_t **head)
 		array = _realloc(array, sizeof(int) * (idx + 1));
 		if (!array)
 			return (1);
-		array[idx] = get_listint_at_index(*head, idx)->n;
+		array[idx] = strider->n;
 		idx += 1;
 		strider = strider->next;
 	}
