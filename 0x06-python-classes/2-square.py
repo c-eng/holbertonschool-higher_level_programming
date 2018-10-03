@@ -9,9 +9,9 @@ class Square:
         for input variable
 
         Args:
-            size (int): Size of Square
+            size(int): Size of Square
         """
-        size (int): Size of Square
+
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
