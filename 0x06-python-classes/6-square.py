@@ -21,13 +21,14 @@ class Square:
         """Prints representation of Square with '#' character.
         Also takes into consideration position in the positive direction
         """
-        x_pos, y_pos = self.__position
-        for i in range(y_pos):
-            print()
-        for i in range(self.__size):
-            print(" " * x_pos, end='')
-            print("#" * self.__size)
-        if self.__size is 0:
+        if self.__size > 0:
+            x_pos, y_pos = self.__position
+            for i in range(y_pos):
+                print()
+            for i in range(self.__size):
+                print(" " * x_pos, end='')
+                print("#" * self.__size)
+        else:
             print()
 
     @property
