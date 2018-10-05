@@ -2,6 +2,8 @@
 """
 Documentation for text indentation function
 """
+
+
 def text_indentation(text):
     """prints test while newlining (\n) twice upon certain characters
     (., :, ?).  Also strips whitespace before and after each discreet line.
@@ -20,7 +22,7 @@ def text_indentation(text):
         elif endline is 0:
             a += text[i]
         if (text[i] is ':' or text[i] is '.' or
-            text[i] is '?'or text[i] is '\n'):
+           text[i] is '?'or text[i] is '\n'):
             print(a.strip(), end='')
             print()
             if text[i] is not '\n':

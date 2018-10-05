@@ -2,6 +2,8 @@
 """
 Documentation for square printing function
 """
+
+
 def print_square(size):
     """Prints a square using the '#' character
 

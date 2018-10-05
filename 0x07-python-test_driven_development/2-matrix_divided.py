@@ -2,6 +2,8 @@
 """
 Documentation for matrix dividing function
 """
+
+
 def matrix_divided(matrix, div):
     """Divides values in matrix against div.
 
@@ -33,6 +35,6 @@ def matrix_divided(matrix, div):
             if not (isinstance(matrix[i][j], int) or
                     isinstance(matrix[i][j], float)):
                 raise TypeError(list_error)
-            insert_matrix.append(float('%.2f'%(matrix[i][j] / div)))
+            insert_matrix.append(float('%.2f' % (matrix[i][j] / div)))
         new_matrix.append(insert_matrix)
     return new_matrix

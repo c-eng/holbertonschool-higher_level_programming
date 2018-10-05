@@ -2,6 +2,8 @@
 """
 Documentation for integer adding function
 """
+
+
 def add_integer(a, b=98):
     """add_integer function: adds two integers and
     converts float to int if necessary
