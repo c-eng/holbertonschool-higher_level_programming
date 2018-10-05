@@ -1,0 +1,42 @@
+"""
+Testing module for 5-text_indentation.py
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation("")
+
+>>> text_indentation("""Lorem:            ?      \n""")
+Lorem:
+<BLANKLINE>
+?
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation(":")
+:
+<BLANKLINE>
+
+>>> text_indentation("?")
+?
+<BLANKLINE>
+
+>>> text_indentation(".")
+.
+<BLANKLINE>
+
+>>> text_indentation(""" Lorem:            ?    """)
+Lorem:
+<BLANKLINE>
+?
+<BLANKLINE>
+
+>>> text_indentation(1337)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+>>> text_indentation("hjk\n abc    ")
+hjk
+abc
+
+"""

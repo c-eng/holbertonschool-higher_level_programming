@@ -1,0 +1,26 @@
+"""
+Testing module for 0-add_integer.py
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(5, -25)
+-20
+>>> add_integer(-10)
+88
+>>> add_integer(15.2, 10)
+25
+>>> add_integer(99.9999999999999, 1)
+100
+>>> add_integer(10, "ten")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+>>> add_integer("ten")
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+"""
