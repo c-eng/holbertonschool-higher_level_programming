@@ -3,6 +3,7 @@
 Documentation for Class Rectangle
 """
 
+
 class Rectangle:
     """
     Generic Rectangle object
@@ -10,7 +11,7 @@ class Rectangle:
 
     number_of_instances = 0
 
-    def __init__(self, width = 0, height = 0):
+    def __init__(self, width=0, height=0):
         """Initilization method for the Rectangle class.
 
         Args:
@@ -25,8 +26,8 @@ class Rectangle:
         """Method for formatted output
         """
         if self.__width and self.__height:
-            return (("#" * self.__width + '\n') * (self.__height - 1
-                                            )) + ("#" * self.__width)
+            return (("#" * self.__width + '\n') * (self.__height - 1)) +
+            ("#" * self.__width)
         else:
             return ""
 
@@ -82,7 +83,7 @@ class Rectangle:
         """
         return self.__height
 
-    @width.setter
+    @height.setter
     def height(self, value):
 
         """Setter method for height

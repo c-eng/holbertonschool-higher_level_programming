@@ -3,6 +3,7 @@
 Documentation for Class Rectangle
 """
 
+
 class Rectangle:
     """
     Generic Rectangle object
@@ -11,7 +12,7 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = '#'
 
-    def __init__(self, width = 0, height = 0):
+    def __init__(self, width=0, height=0):
         """Initilization method for the Rectangle class.
 
         Args:
@@ -84,7 +85,7 @@ class Rectangle:
         """
         return self.__height
 
-    @width.setter
+    @height.setter
     def height(self, value):
 
         """Setter method for height

@@ -3,6 +3,7 @@
 Documentation for Class Rectangle
 """
 
+
 class Rectangle:
     """
     Generic Rectangle object
