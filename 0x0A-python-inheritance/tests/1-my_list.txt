@@ -1,0 +1,23 @@
+Testing module for 1-my_list.py
+
+>>> MyList = __import__('1-my_list').MyList
+>>> list1 = MyList([])
+>>> list1.print_sorted()
+[]
+>>> list2 = MyList(["one", 2, "three", 4])
+>>> list2.print_sorted()
+Traceback (most recent call last):
+    ...
+TypeError: unorderable types: int() < str()
+>>> list3 = MyList([1, 2, -3, 4, -5])
+>>> list3.print_sorted()
+[-5, -3, 1, 2, 4]
+>>> list4 = MyList([-5, 2, -3, 4, 1])
+>>> list4.print_sorted()
+[-5, -3, 1, 2, 4]
+>>> list5 = MyList([-5])
+>>> list5.print_sorted()
+[-5]
+>>> list6 = MyList([-3, 2, -5, 4, 1])
+>>> list6.print_sorted()
+[-5, -3, 1, 2, 4]
