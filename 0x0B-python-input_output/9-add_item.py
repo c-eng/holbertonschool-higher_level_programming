@@ -10,11 +10,9 @@ if __name__ == "__main__":
             if i != 0:
                 data.append(argv[i])
         save(data, filename)
-        print("wasn't mt")
     except FileNotFoundError:
         data = []
         for i in range(len(argv)):
             if i != 0:
                 data.append(argv[i])
         save(data, filename)
-        print("was mt")
