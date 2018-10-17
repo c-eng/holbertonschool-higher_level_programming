@@ -21,3 +21,15 @@ TypeError: unorderable types: int() < str()
 >>> list6 = MyList([-3, 2, -5, 4, 1])
 >>> list6.print_sorted()
 [-5, -3, 1, 2, 4]
+>>> list7 = MyList(['one', 'two', 'three'])
+>>> list7.print_sorted()
+['one', 'three', 'two']
+>>> list8 = MyList([])
+>>> list8.append(1)
+>>> list8.append(2)
+>>> list8.append(9)
+>>> list8.append(3)
+>>> list8.print_sorted()
+[1, 2, 3, 9]
+>>> print(list8)
+[1, 2, 9, 3]
