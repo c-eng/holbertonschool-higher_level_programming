@@ -23,7 +23,7 @@ class Base:
     def to_json_string(list_dictionaries):
         """JSON serialization method
         """
-        if list_dictionaries:
+        if list_dictionaries and len(list_dictionaries) > 0:
             return json.dumps(list_dictionaries)
         else:
             return '[]'
