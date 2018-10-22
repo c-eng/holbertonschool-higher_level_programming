@@ -20,6 +20,7 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
+    @staticmethod
     def to_json_string(list_dictionaries):
         """JSON serialization method
         """
@@ -39,6 +40,7 @@ class Base:
                     lst.append(i.to_dictionary())
                 f.write(Base.to_json_string(lst))
 
+    @staticmethod
     def from_json_string(json_string):
         """JSON deserialization method
         """
