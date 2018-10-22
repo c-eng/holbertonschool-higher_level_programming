@@ -53,7 +53,10 @@ class Base:
     def create(cls, **dictionary):
         """Creates an object
         """
-        temp = cls(1, 2, 3)
+        if cls.__name__ == 'Rectangle':
+            temp = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            temp = cls(1)
         temp.update(**dictionary)
         return temp
 
