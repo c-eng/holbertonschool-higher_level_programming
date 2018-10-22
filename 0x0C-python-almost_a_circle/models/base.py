@@ -33,12 +33,12 @@ class Base:
     def save_to_file(cls, list_objs):
         """JSON serialization to file method
         """
-        if list_objs and type(cls) is type:
-            with open(cls.__name__ + '.json', 'w') as f:
-                lst = []
-                for i in list_objs:
-                    lst.append(i.to_dictionary())
-                f.write(Base.to_json_string(lst))
+        lst = []
+        if list_objs:
+            for i in list_objs:
+                lst.append(i.to_dictionary())
+        with open(cls.__name__ + '.json', 'w') as f:
+            f.write(Base.to_json_string(lst))
 
     @staticmethod
     def from_json_string(json_string):
