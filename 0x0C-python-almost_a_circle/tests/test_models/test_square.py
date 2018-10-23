@@ -69,6 +69,10 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             s1.size = True
         with self.assertRaises(TypeError):
+            s1.x = True
+        with self.assertRaises(TypeError):
+            s1.y = True
+        with self.assertRaises(TypeError):
             s2 = Square("eleventeen")
         with self.assertRaises(ValueError):
             s1.size = 0
@@ -78,6 +82,8 @@ class TestSquare(unittest.TestCase):
             s1.x = -3
         with self.assertRaises(ValueError):
             s1.y = -3
+        with self.assertRaises(TypeError):
+            s2 = Square()
 
 
     def test_update(self):
@@ -167,3 +173,28 @@ class TestSquare(unittest.TestCase):
         self.assertNotEqual(id(list_squares_input[1]),
                             id(list_squares_output[1]))
         sys.stdout = sys.__stdout__
+
+    def test_csv(self):
+        """Testing csv
+        """
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        list_squares_input = [s1, s2]
+        Square.save_to_file_csv(list_squares_input)
+        list_squares_output = Square.load_from_file_csv()
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        for square in list_squares_input:
+            print(square)
+        for square in list_squares_output:
+            print(square)
+        self.assertEqual(capturedOutput.getvalue(),
+                          "[Square] (1) 0/0 - 5\n"
+                          "[Square] (2) 9/1 - 7\n"
+                          "[Square] (1) 0/0 - 5\n"
+                          "[Square] (2) 9/1 - 7\n")
+        sys.stdout = sys.__stdout__
+        self.assertNotEqual(id(list_squares_input[0]),
+                            id(list_squares_output[0]))
+        self.assertNotEqual(id(list_squares_input[1]),
+                            id(list_squares_output[1]))

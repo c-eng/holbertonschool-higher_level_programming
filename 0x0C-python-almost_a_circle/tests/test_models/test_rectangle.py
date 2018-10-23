@@ -39,6 +39,10 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r4.height = True
         with self.assertRaises(TypeError):
+            r4.x = True
+        with self.assertRaises(TypeError):
+            r4.width = True
+        with self.assertRaises(TypeError):
             r5 = Rectangle("2", 10)
         r6 = Rectangle(10, 2)
         with self.assertRaises(ValueError):
@@ -200,3 +204,28 @@ class TestRectangle(unittest.TestCase):
         self.assertNotEqual(id(list_rectangles_input[1]),
                             id(list_rectangles_output[1]))
         sys.stdout = sys.__stdout__
+
+    def test_csv(self):
+        """Testing csv
+        """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file_csv()
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        for rect in list_rectangles_input:
+            print(rect)
+        for rect in list_rectangles_output:
+            print(rect)
+        self.assertEqual(capturedOutput.getvalue(),
+                          "[Rectangle] (1) 2/8 - 10/7\n"
+                          "[Rectangle] (2) 0/0 - 2/4\n"
+                          "[Rectangle] (1) 2/8 - 10/7\n"
+                          "[Rectangle] (2) 0/0 - 2/4\n")
+        sys.stdout = sys.__stdout__
+        self.assertNotEqual(id(list_rectangles_input[0]),
+                            id(list_rectangles_output[0]))
+        self.assertNotEqual(id(list_rectangles_input[1]),
+                            id(list_rectangles_output[1]))
