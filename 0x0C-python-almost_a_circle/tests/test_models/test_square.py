@@ -56,6 +56,10 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.size, 10)
         self.assertEqual(s1.x, 9)
         self.assertEqual(s1.y, 8)
+        s1.height = 7
+        self.assertEqual(s1.size, 7)
+        self.assertEqual(s1.width, 7)
+        self.assertEqual(s1.height, 7)
         with self.assertRaises(TypeError):
             s1.size = "9"
         with self.assertRaises(TypeError):

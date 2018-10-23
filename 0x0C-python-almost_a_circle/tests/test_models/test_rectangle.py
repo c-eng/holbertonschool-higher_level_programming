@@ -25,6 +25,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.id, 2)
         r3 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r3.id, 12)
+        r4 = Rectangle(1, 1, 1, 1, "Bella")
+        self.assertEqual(r4.id, "Bella")
 
     def test_values(self):
         """Testing input validation
@@ -42,11 +44,25 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r6.width = -10
         with self.assertRaises(ValueError):
+            r6.height = -10
+        with self.assertRaises(ValueError):
+            r6.y = -3
+        with self.assertRaises(ValueError):
             r6.x = -3
+        with self.assertRaises(ValueError):
+            r6.width = 0
         with self.assertRaises(ValueError):
             r6.height = 0
         with self.assertRaises(TypeError):
             r7 = Rectangle()
+        with self.assertRaises(TypeError):
+            r8 = Rectangle(3.14159, 1)
+        with self.assertRaises(TypeError):
+            r9 = Rectangle(3, 1.41421)
+        with self.assertRaises(TypeError):
+            r10 = Rectangle(3, 1, 3.14159, 1)
+        with self.assertRaises(TypeError):
+            r11 = Rectangle(3, 1, 3, 1.41421)
 
     def test_area(self):
         """Testing area
@@ -55,6 +71,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r8.area(), 6)
         r9 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r9.area(), 56)
+
 
     def test_display(self):
         """Testing display
@@ -71,6 +88,18 @@ class TestRectangle(unittest.TestCase):
         r2.display()
         self.assertEqual(capturedOutput2.getvalue(),
                          "\n\n  ##\n  ##\n  ##\n")
+        r3 = Rectangle(2, 3, 0, 2)
+        capturedOutput3 = io.StringIO()
+        sys.stdout = capturedOutput3
+        r3.display()
+        self.assertEqual(capturedOutput3.getvalue(),
+                         "\n\n##\n##\n##\n")
+        r4 = Rectangle(2, 3, 2, 0)
+        capturedOutput4 = io.StringIO()
+        sys.stdout = capturedOutput4
+        r4.display()
+        self.assertEqual(capturedOutput4.getvalue(),
+                         "  ##\n  ##\n  ##\n")
         sys.stdout = sys.__stdout__
 
     def test_print(self):
@@ -123,6 +152,7 @@ class TestRectangle(unittest.TestCase):
         print(r1)
         self.assertEqual(capturedOutput5.getvalue(),
                          "[Rectangle] (88) 1/3 - 2/4\n")
+
         sys.stdout = sys.__stdout__
 
     def test_dict(self):
