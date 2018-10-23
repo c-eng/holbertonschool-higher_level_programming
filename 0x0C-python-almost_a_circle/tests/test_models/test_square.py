@@ -76,6 +76,9 @@ class TestSquare(unittest.TestCase):
             s1.size = -5
         with self.assertRaises(ValueError):
             s1.x = -3
+        with self.assertRaises(ValueError):
+            s1.y = -3
+
 
     def test_update(self):
         """Testing updating
@@ -132,3 +135,35 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s2.to_dictionary(), {'id': 1, 'x': 2, 'size': 10,
                                               'y': 1})
         self.assertNotEqual(s1, s2)
+
+    def test_json(self):
+        """Testing json
+        """
+        s1 = Square(5)
+        json = Base.to_json_string([s1.to_dictionary()])
+        self.assertEqual(type(json), str)
+        s2 = Square(7, 9, 1)
+        Square.save_to_file([s1, s2])
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        with open("Square.json", "r") as file:
+            self.assertEqual(type(file.read()), str)
+        list_squares_input = [s1, s2]
+        Square.save_to_file(list_squares_input)
+        list_squares_output = Square.load_from_file()
+        capturedOutput2 = io.StringIO()
+        sys.stdout = capturedOutput2
+        for square in list_squares_input:
+            print(square)
+        for square in list_squares_output:
+            print(square)
+        self.assertEqual(capturedOutput2.getvalue(),
+                          "[Square] (1) 0/0 - 5\n"
+                          "[Square] (2) 9/1 - 7\n"
+                          "[Square] (1) 0/0 - 5\n"
+                          "[Square] (2) 9/1 - 7\n")
+        self.assertNotEqual(id(list_squares_input[0]),
+                            id(list_squares_output[0]))
+        self.assertNotEqual(id(list_squares_input[1]),
+                            id(list_squares_output[1]))
+        sys.stdout = sys.__stdout__

@@ -152,7 +152,6 @@ class TestRectangle(unittest.TestCase):
         print(r1)
         self.assertEqual(capturedOutput5.getvalue(),
                          "[Rectangle] (88) 1/3 - 2/4\n")
-
         sys.stdout = sys.__stdout__
 
     def test_dict(self):
@@ -176,3 +175,28 @@ class TestRectangle(unittest.TestCase):
                                               'height': 7, 'y': 8})
         json = Base.to_json_string([r1.to_dictionary()])
         self.assertEqual(type(json), str)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(type(file.read()), str)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        capturedOutput2 = io.StringIO()
+        sys.stdout = capturedOutput2
+        for rect in list_rectangles_input:
+            print(rect)
+        for rect in list_rectangles_output:
+            print(rect)
+        self.assertEqual(capturedOutput2.getvalue(),
+                          "[Rectangle] (1) 2/8 - 10/7\n"
+                          "[Rectangle] (2) 0/0 - 2/4\n"
+                          "[Rectangle] (1) 2/8 - 10/7\n"
+                          "[Rectangle] (2) 0/0 - 2/4\n")
+        self.assertNotEqual(id(list_rectangles_input[0]),
+                            id(list_rectangles_output[0]))
+        self.assertNotEqual(id(list_rectangles_input[1]),
+                            id(list_rectangles_output[1]))
+        sys.stdout = sys.__stdout__
