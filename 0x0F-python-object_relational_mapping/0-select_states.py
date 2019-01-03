@@ -9,5 +9,7 @@ db = MySQLdb.connect(user=argv[1], passwd=argv[2], host='localhost',
 cursor = db.cursor()
 cursor.execute("SELECT * FROM states ORDER BY id")
 states = cursor.fetchall()
+cursor.close()
+db.close()
 for state in states:
     print("{}".format(state))
