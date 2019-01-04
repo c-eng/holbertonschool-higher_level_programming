@@ -5,9 +5,12 @@
 if __name__ == "__main__":
     import MySQLdb
     from sys import argv
+    from sys import exit
     db = MySQLdb.connect(user=argv[1], passwd=argv[2], host='localhost',
                          port=3306, db=argv[3])
     cursor = db.cursor()
+    if ' ' in argv[4]:
+        exit()
     cursor.execute("SELECT name FROM cities "
                    "WHERE state_id="
                    "(SELECT id FROM states WHERE name='{}') ".format(argv[4]))
