@@ -19,4 +19,4 @@ if __name__ == "__main__":
     for state in states:
         out += state[0]
         out += ', '
-    print ("{}".format(out[0:-2]))
+    print("{}".format(out[0:-2]))
