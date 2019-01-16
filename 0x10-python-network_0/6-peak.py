@@ -7,24 +7,22 @@ def find_peak(peak_list):
     Args:
         peak_list (list): list to find peaks in
     """
-    lin = len(peak_list)
-    if lin < 1:
+    if len(peak_list) < 1:
         return None
-    if lin < 2:
+    if len(peak_list) < 2:
         return peak_list[0]
-    if lin < 3:
+    if len(peak_list) < 3:
         if peak_list[0] >= peak_list[1]:
             return peak_list[0]
         else:
             return peak_list[1]
-    mindex = int(lin / 2)
-    mindex0 = peak_list[mindex]
-    mindex1 = peak_list[mindex + 1]
-    mindex2 = peak_list[mindex - 1]
-    if ((mindex0 >= mindex1) and
-        (mindex0 >= mindex2)):
-        return mindex0
-    if (mindex2 >= mindex1):
-        return find_peak(peak_list[:mindex])
+    if ((peak_list[int(len(peak_list) / 2)] >=
+         peak_list[int(len(peak_list) / 2) + 1]) and
+        (peak_list[int(len(peak_list) / 2)] >=
+         peak_list[int(len(peak_list) / 2) - 1])):
+        return peak_list[int(len(peak_list) / 2)]
+    if (peak_list[int(len(peak_list) / 2) - 1] >=
+        peak_list[int(len(peak_list) / 2) + 1]):
+        return find_peak(peak_list[:int(len(peak_list) / 2)])
     else:
-        return find_peak(peak_list[mindex + 1:])
+        return find_peak(peak_list[int(len(peak_list) / 2) + 1:])
