@@ -22,7 +22,7 @@ def find_peak(peak_list):
          peak_list[int(len(peak_list) / 2) - 1])):
         return peak_list[int(len(peak_list) / 2)]
     if (peak_list[int(len(peak_list) / 2) - 1] >=
-        peak_list[int(len(peak_list) / 2) + 1]):
+       peak_list[int(len(peak_list) / 2) + 1]):
         return find_peak(peak_list[:int(len(peak_list) / 2)])
     else:
         return find_peak(peak_list[int(len(peak_list) / 2) + 1:])
