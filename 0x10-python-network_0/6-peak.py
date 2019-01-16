@@ -19,7 +19,7 @@ def find_peak(peak_list):
     if ((mindex0 >= mindex1) and
         (mindex0 >= mindex2)):
         return mindex0
-    if (mindex1 >= mindex2):
-        return find_peak(peak_list[(mindex + 1):])
-    else:
+    if (mindex2 >= mindex1):
         return find_peak(peak_list[:mindex])
+    else:
+        return find_peak(peak_list[mindex + 1:])
