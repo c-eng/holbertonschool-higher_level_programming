@@ -17,7 +17,7 @@ def find_peak(peak_list):
             return peak_list[0]
         else:
             return peak_list[1]
-    mindex = int(lin / 2 - 1)
+    mindex = int(lin / 2)
     mindex0 = peak_list[mindex]
     mindex1 = peak_list[mindex + 1]
     mindex2 = peak_list[mindex - 1]
