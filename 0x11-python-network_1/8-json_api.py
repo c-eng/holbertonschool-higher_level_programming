@@ -10,7 +10,7 @@ if __name__ == "__main__":
     if len(argv) < 2:
         argv.append("")
     dest = 'http://0.0.0.0:5000/search_user'
-    r = requests.post(dest, data = {'q': argv[1]})
+    r = requests.post(dest, data={'q': argv[1]})
     try:
         r.json()
     except Exception:
