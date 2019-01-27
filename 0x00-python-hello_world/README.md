@@ -4,7 +4,7 @@ Introduction to python.
 
 ## Directory Contents
 
-|   ***File***    |  **Decription**                       |
+|   ***File***    |  **Description**                       |
 |---------------|---------------------------------------|
 |  `README.md` |  Read me file. |
 | `0-run` | Runs a python script. |
