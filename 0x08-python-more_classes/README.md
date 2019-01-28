@@ -7,16 +7,16 @@ More Class and OOP practice
 |   ***File/Folder***    |  **Description**                       |
 |---------------|---------------------------------------|
 | `README.md` |  Read me file. |
-| `0-rectangle.py` |  |
-| `1-rectangle.py` |  |
-| `2-rectangle.py` |  |
-| `3-rectangle.py` |  |
-| `4-rectangle.py` |  |
-| `5-rectangle.py` |  |
-| `6-rectangle.py` |  |
-| `7-rectangle.py` |  |
-| `8-rectangle.py` |  |
-| `9-rectangle.py` |  |
+| `0-rectangle.py` | Rectangle class. |
+| `1-rectangle.py` | Added width and height attributes. |
+| `2-rectangle.py` | Added area and perimeter methods. |
+| `3-rectangle.py` | Added print and str methods. |
+| `4-rectangle.py` | Added repr method. |
+| `5-rectangle.py` | Added object deletion message. |
+| `6-rectangle.py` | Added number of instances attribute. |
+| `7-rectangle.py` | Added print symbol attribute. |
+| `8-rectangle.py` | Added comparison method. |
+| `9-rectangle.py` | Added square method. |
 
 ### Authors
 *Cameron Eng* - [Github](https://github.com/c_eng/) || [Twitter](https://twitter.com/c33Eng)
