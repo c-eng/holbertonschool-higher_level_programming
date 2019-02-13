@@ -1,5 +1,6 @@
 #!/usr/bin/node
 let output = ['C is fun', 'Python is cool', 'Javascript is amazing'];
-output.forEach(function (element) {
-  console.log(element);
-});
+let i = 0;
+for (; i < output.length; i++) {
+  console.log(output[i]);
+}
