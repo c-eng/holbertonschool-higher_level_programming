@@ -1,17 +1,17 @@
 #!/usr/bin/node
-let first = 0;
-let second = 0;
+let first = Number.MIN_SAFE_INTEGER;
+let second = Number.MIN_SAFE_INTEGER;
 let i = 2;
 let len = process.argv.length;
 if (len < 4) {
   console.log('0');
 } else {
   for (; i < len; i++) {
-    if (process.argv[i] >= first) {
+    if (parseInt(process.argv[i]) > first) {
       second = first;
-      first = process.argv[i];
-    } else if (process.argv[i] >= second) {
-      second = process.argv[i];
+      first = parseInt(process.argv[i]);
+    } else if (parseInt(process.argv[i]) > second) {
+      second = parseInt(process.argv[i]);
     }
   }
   console.log(second);
