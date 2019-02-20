@@ -11,7 +11,7 @@ request.get(url, function (error, response, body) {
     let jason = JSON.parse(body).results;
     for (i = 0; i < jason.length; i++) {
       for (j = 0; j < jason[i].characters.length; j++) {
-        if (jason[i].characters[j] === 'https://swapi.co/api/people/18/') {
+        if (jason[i].characters[j].endsWith('18/')) {
           count++;
         }
       }
